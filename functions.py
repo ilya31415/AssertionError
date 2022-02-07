@@ -10,10 +10,6 @@ directories = {
     '3': []
 }
 
-def qwe(w):
-    a = int(input())
-    return a+w
-
 def check_document_existance(user_doc_number):
     doc_founded = False
     for current_document in documents:
@@ -47,6 +43,8 @@ def get_all_doc_owners_names():
 
 
 def remove_doc_from_shelf(doc_number):
+    if type(doc_number) not in [int, float, str]:
+        raise TypeError("Неверный тип данных")
     for directory_number, directory_docs_list in directories.items():
         if doc_number in directory_docs_list:
             directory_docs_list.remove(doc_number)
@@ -176,4 +174,7 @@ def secretary_program_start():
 
 if __name__ == '__main__':
 
-    secretary_program_start()
+    # secretary_program_start()
+
+    data= [data for data in documents if '2207 876234' in data['number']]
+    print(data)
