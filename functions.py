@@ -10,6 +10,7 @@ directories = {
     '3': []
 }
 
+
 def check_document_existance(user_doc_number):
     doc_founded = False
     for current_document in documents:
@@ -173,8 +174,4 @@ def secretary_program_start():
 
 
 if __name__ == '__main__':
-
-    # secretary_program_start()
-
-    data= [data for data in documents if '2207 876234' in data['number']]
-    print(data)
+    secretary_program_start()

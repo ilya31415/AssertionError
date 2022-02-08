@@ -40,7 +40,7 @@ class TestGetAllDocOwnersNames(unittest.TestCase):
     def test_get_all_doc_owners_names(self):
         """Восврат всех уникальных ФИ в архиве """
         self.assertEqual(functions.get_all_doc_owners_names(),
-                       {'Аристарх Павлов', 'Геннадий Покемонов', 'Василий Гупкин'})
+                         {'Аристарх Павлов', 'Геннадий Покемонов', 'Василий Гупкин'})
 
     @unittest.skip('tests/tests_unittest_functions.py:38 не работает')
     def test_keyError(self):
@@ -55,12 +55,10 @@ class TestAddNewDoc(unittest.TestCase):
         self.assertEqual(functions.add_new_doc(), '1')
 
     @patch('builtins.input', side_effect=['99999', 'insurance', 'Random', '1'])
-    def test_append_new_doc(self,data):
+    def test_append_new_doc(self, data):
         """Проверка добавления нового документа"""
         functions.add_new_doc()
         self.assertIn({'type': 'insurance', 'number': '99999', 'name': 'Random'}, functions.documents)
-
-
 
     def tearDown(self) -> None:
         functions.documents = [{"type": "passport", "number": "2207 876234", "name": "Василий Гупкин"},
